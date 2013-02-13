@@ -85,7 +85,7 @@ namespace Blog.Controllers
                 .OrderByDescending(p => p.PublishedAt)
                 .Where(p => p.Tags.Any(t => t == tag))
                 .Where(p => p.IsPublished)
-                .Skip(page - 1 * pageSize)
+                .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
