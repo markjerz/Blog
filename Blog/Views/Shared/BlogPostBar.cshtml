@@ -1,0 +1,23 @@
+﻿@model Blog.Core.Domain.BlogPost
+<div class="postheader @ViewData["AfterBar"]">
+        <div class="comments">
+            @Html.ActionLink(Model.Comments != null ? Model.Comments.Count().ToString() : "0", "Blog", "Home", null, null, "comments", new { id = Model.Id }, null)
+            Comments
+            &emsp;&ensp;
+            @Html.ActionLink("Add Comment", "Blog", "Home", null, null, "addcomment", new { id = Model.Id }, null)
+        </div>
+        @if (ViewData.ContainsKey("AfterBar"))
+        {
+            @:&emsp;&ensp;Share this:
+            var clss = new string[] {"st_sharethis", "st_facebook", "st_twitter", "st_linkedin", "st_plusone", "st_email"};
+            foreach (var cls in clss)
+            {
+                <span class="@cls" st_title="@Model.Title.Replace('"', '\'')" st_url="@Request.Url.GetLeftPart(UriPartial.Authority)@Url.Action("Blog", "Home", new { id = Model.Id })"></span>
+            }
+        }
+        <div class="tags">
+            Tagged in @Html.Raw(Model.Tags != null && Model.Tags.Count() > 0 ? String.Join(", ", Model.Tags.Select(t => Html.ActionLink(t, "Tag", "Home", new { tag = t }, null))) : "Nowhere!")
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>

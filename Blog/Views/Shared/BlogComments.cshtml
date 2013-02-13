@@ -1,0 +1,70 @@
+﻿@model Blog.Core.Domain.BlogPost
+@using Blog.Core.Infrastructure.Extensions;
+<h3 id="comments">Comments</h3>
+
+@if (Model.Comments == null || Model.Comments.Count == 0)
+{
+    <p>There are no comments :-(</p>
+}
+else
+{
+    <ol id="commentlist">
+    @foreach (var comment in Model.Comments)
+    {
+        <li>
+            <div class="commentheader">
+                @String.Format("{0:f}", comment.CommentedAt)
+            </div>
+            <div class="commentbody">
+            @{
+        // create the gravatar hash
+        var hash = "";
+        if (comment.Email != null && comment.Email.Trim().Length > 0)
+        {
+            hash = comment.Email.Trim().ToLower().ToMd5();
+        }
+        else
+        {
+            hash = comment.Author.Trim().ToLower().ToMd5();
+        }
+    }
+                <img src="http://www.gravatar.com/avatar/@hash?d=monsterid" />
+                
+                <div class="commentcontent">
+                @comment.Content
+                <p>
+                    @if (comment.AuthorUrl != null && comment.AuthorUrl.Trim().Length > 0)
+                    {
+                        <a href="@comment.AuthorUrl">@comment.Author</a>
+                    }
+                    else
+                    {
+                        @comment.Author
+                    }
+                   </p> 
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </li>
+    }
+    </ol>
+}
+
+<div id="addcomment">
+    @using (Html.BeginForm("Comment", "Home", new { id = Model.Id }, FormMethod.Post))
+    {
+        <p>Name:</p>
+        @Html.TextBox("name")
+
+        <p>Email:</p>
+        <input type="email" name="email" /> @:will show your <a href="http://www.gravatar.com/">gravatar</a> icon
+
+        <p>Your Homepage:</p>
+        <input type="url" name="url" />
+        
+        <p>Comment</p>
+        <textarea name="comment" rows="8"></textarea>
+        <p></p>
+        <input type="submit" value="Comment" />
+    }
+</div>

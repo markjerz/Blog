@@ -1,0 +1,29 @@
+﻿@model IList<Blog.Core.Domain.Image>
+@using Blog.Core.Infrastructure.Extensions;
+@{
+    ViewBag.PageTitle = "Edit Images";
+}
+
+<h2>Edit Images</h2>
+
+<table>
+    <tbody>
+        @for (int i = 0, l = (int)Math.Ceiling(Model.Count / 3.0); i < l; i++) {
+            <tr>
+                @for (int j = 0; j < 3; j++) {
+                    <td style="width: 33%; text-align: center;">
+                        @if ((i * 3.0) + j < Model.Count) {
+                            <img src="/Home/Image/@Model[(i * 3) + j].Id" style="max-width: 100%;" />
+                            <br />
+                            @Html.ActionLink("Delete", "DeleteImage", new { id = Model[(i * 3) + j].Id})
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div id="pager">
+@Html.Pager((int)ViewBag.Page, 15, (int)ViewBag.TotalResults, Url.Action("EditImages", "Admin", new {  }))
+</div>

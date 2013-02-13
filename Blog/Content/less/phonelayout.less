@@ -1,0 +1,47 @@
+﻿@media (max-width: 480px) {
+	body {
+		#container {
+			 > header {
+				line-height: normal;
+
+				.clearhbox;
+
+				> h1 {
+					line-height: 2em;
+				}
+
+				> #searchform {
+					.clearboxflex;
+					position: relative;
+					margin: 0.5em 0 0;
+					padding: 0 0 0.5em;
+
+					input[type="search"],
+					input[type="text"] {
+						width: 100%;
+					}
+
+					input[type="image"] {
+						position: absolute;
+						right: 0em;
+						top: 0.3em;
+					}
+				}
+			}
+
+			> #body {
+				section {
+					width: auto;
+					float: none;
+				}
+
+				> aside {
+					width: auto;
+					float: none;
+					padding: 1em;
+					border-top: 1em solid @asideMobileColour;
+				}
+			}
+		}
+	}
+}

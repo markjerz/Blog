@@ -1,0 +1,6 @@
+﻿@model Blog.Core.Domain.BlogPost
+@{
+    ViewBag.PageTitle = Model.Title;
+}
+
+@{Html.RenderPartial("BlogPost", Model);}

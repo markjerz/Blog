@@ -1,0 +1,132 @@
+﻿@import "normalize";
+@import "variables";
+@import "mixins";
+@import "type";
+@import "layout";
+@import "forms";
+
+@import "admin";
+@import "tagcloud";
+
+@import "phonelayout";
+
+.actionbox {
+	font-size: 0.8em;
+	background-color: #ddd;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	margin: 0.5em 0;
+
+	a {
+		color: #1B7EE0;
+		font-weight: bold;
+	}
+}
+
+.blogpost {
+	time {
+		float: right;
+		line-height: 1.1em;
+		font-size: 0.9em;
+	}
+
+	.blogcontent {
+		margin: 1em 0;
+	}
+
+	.postheader {
+		.actionbox;
+		line-height: 2em;
+		padding: 0 1em;
+		.box-shadow(0px 5px 15px -5px #C8C8C8);
+
+		.comments {
+			float: left;
+		}
+
+		.tags {
+			float: right;
+		}
+
+		&.afterbar {
+			margin-bottom: 3em;
+		}
+
+		a {
+			color: #1B7EE0;
+			font-weight: bold;
+		}
+	}
+}
+
+#totalresults {
+	float: right;
+}
+
+#pager {
+	margin-top: 2em;
+	text-align: center;
+	a {
+		color: #1B7EE0;
+	}
+}
+
+.searchitem {
+	margin-top: 2em;
+	
+	h3 {
+		margin-bottom: 0;
+	}
+
+	time {
+		float: right;
+		font-size: 0.9em;
+	}
+
+	p {
+		font-size: 0.9em;
+		margin: 0.3em 0;
+	}
+
+	span a {
+		color: #1B7EE0;
+		font-size: 0.8em;
+	}
+}
+
+#commentlist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	.commentheader {
+		.actionbox;
+		line-height: 2em;
+		margin-top: 0.5em;
+		padding: 0 1em;
+	}
+
+	.commentbody {
+		> img {
+			margin: 1em;
+			float: left;
+			border: 1px solid black;
+		}
+
+		.commentcontent {
+			margin-left: 100px;
+			padding-top: 1em;
+		}
+	}
+}
+
+#addcomment {
+	.actionbox;
+	margin-top: 1em;
+		padding: 0 1em 1em;
+
+		input:not([type="submit"]),
+		textarea {
+			width: 100%;
+		}
+}

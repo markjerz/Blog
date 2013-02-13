@@ -1,0 +1,17 @@
+﻿@model Blog.Core.Domain.BlogPost
+<div class="blogpost">
+    <time datetime="@Model.PublishedAt">@String.Format("{0:f}", Model.PublishedAt)</time>
+    <h3>@Html.ActionLink(Model.Title, "Blog", "Home", new { id = Model.Id }, null)</h3>
+    @*@{Html.RenderPartial("BlogPostBar", Model);}*@
+
+    <div class="blogcontent">
+    @Html.Raw(Model.Content)
+    </div>
+    
+    @{Html.RenderPartial("BlogPostBar", Model, new ViewDataDictionary(this.ViewData) { {"AfterBar", "afterbar"} });}
+
+    @if (ViewBag.ShowComments != null)
+    {
+        Html.RenderPartial("BlogComments", Model);
+    }
+</div>

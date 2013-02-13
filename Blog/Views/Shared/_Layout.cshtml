@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.PageTitle</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js" type="text/javascript"></script>
+    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+    <link href="~/Content/css/prettify.css" type="text/css" rel="Stylesheet" />
+    <link href="~/Content/css/blog.css" type="text/css" rel="stylesheet" />
+</head>
+<body id="@ViewBag.PageId" onload="prettyPrint()">
+    <div id="container">
+        <header>
+        <h1><a href="@Url.Action("Index", "Home")">Mark Jerzykowski</a></h1>
+        <form id="searchform" action="~/Home/Search" method="get">
+            <input type="search" name="q" placeholder="Search Me..." value="@ViewBag.Q" />
+            <input type="image" src="~/Content/images/search.png" />
+        </form>
+    </header>
+        <nav>
+        &nbsp;
+      @*<ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>*@
+    </nav>
+        <div id="body">
+            <section>
+    @RenderBody()
+      @*<article>
+        <header>
+          <h2><a href="#">Article Title</a></h2>
+        </header>
+        <section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </section>
+      </article>
+      <article>
+        <header>
+          <h2><a href="#">Article Title</a></h2>
+        </header>
+        <section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </section>
+      </article>*@
+    </section>
+            <aside>
+        <h2>Tags</h2>
+        <hr />
+        @Html.Partial("TagCloud", (IList<Blog.Models.TagCloudItem>)ViewBag.TagCloudItems)
+      <h2>About Mark</h2>
+      <hr />
+      <p class="about">A Physics graduate turned IT Consultant with a thirst for knowledge and a slight addiction to <del>exercise</del> travelling.</p>
+    </aside>
+            <div class="clearfix">
+            </div>
+        </div>
+        <footer>
+      Disclaimer: The opinions expressed herein are my own personal opinions and do not represent my employer’s view in any way.
+    </footer>
+    </div>
+    <script type="text/javascript" src="~/Content/js/blog.js"></script>
+    <script type="text/javascript">        var switchTo5x = true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">    stLight.options({ publisher: "0d66f604-8115-4fc3-bf4d-8a62e179daae" });</script>
+</body>
+</html>

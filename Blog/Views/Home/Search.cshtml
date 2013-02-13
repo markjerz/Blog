@@ -1,0 +1,18 @@
+﻿@model IList<Blog.Core.Domain.BlogPost>
+@using Blog.Core.Infrastructure.Extensions;
+@{
+    ViewBag.PageTitle = "Home";
+}
+
+<span id="totalresults">@ViewBag.TotalResults results</span>
+<h2>Search: @ViewBag.Q</h2>
+<hr />
+
+@foreach (var post in Model)
+{
+    @Html.Partial("SearchItem", post)
+}
+
+<div id="pager">
+@Html.Pager((int)ViewBag.Page, 10, (int)ViewBag.TotalResults, Url.Action("Search", "Home", new { q = ViewBag.Q }))
+</div>

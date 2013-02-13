@@ -1,0 +1,13 @@
+﻿@model Blog.Core.Domain.BlogPost
+<div class="searchitem">
+    <time datetime="@Model.PublishedAt">@String.Format("{0:f}", Model.PublishedAt)</time>
+    <h3>@Html.ActionLink(Model.Title, "Blog", "Home", new { id = Model.Id }, null)</h3>
+    
+    <p>
+    @Model.ContentSynopsis
+    </p>
+    <span>
+    @Html.ActionLink(Model.Comments != null ? Model.Comments.Count().ToString() + " Comments" : "0 Comments", "Blog", "Home", null, null, "comments", new { id = Model.Id }, null)
+            </span>
+    
+</div>

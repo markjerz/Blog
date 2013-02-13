@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.PageTitle = "Upload Image";
+}
+
+<h2>Upload Image</h2>
+
+@using (Html.BeginForm("UploadImage", "Admin",
+                    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p>Choose the Image</p>
+    <input type="file" name="image" />
+    
+    <p>Optional rename:</p>
+    <input type="text" name="rename" />
+    <p></p>
+    <button type="submit">Upload</button>
+}

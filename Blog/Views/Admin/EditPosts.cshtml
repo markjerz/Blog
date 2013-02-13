@@ -1,0 +1,31 @@
+﻿@model IList<Blog.Core.Domain.BlogPost>
+@{
+    ViewBag.PageTitle = "EditPosts";
+}
+
+<h2>Edit Posts</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Synopsis</th>
+            <th>Tags</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Title</td>
+                <td>@post.ContentSynopsis</td>
+                <td>@(post.Tags != null ? String.Join(", ", post.Tags) : null)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Post", new { id = post.Id})
+                    @Html.ActionLink("Delete", "Delete", new { id = post.Id})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

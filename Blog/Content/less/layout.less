@@ -1,0 +1,156 @@
+﻿* {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+}
+
+table {
+	width: 100%;
+	thead {
+		th {
+			background-image: url(/Content/images/hbg.png);
+			color: rgba(250, 250, 250, 1);
+			text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+			padding: 0.5em;
+			text-align: left;
+		}
+	}
+
+	tbody {
+		td {
+			border: 1px solid black;
+			padding: 0.5em;
+		}
+	}
+
+	.box-shadow(0px 5px 15px 0px #bbb);
+}
+
+body {
+	//#gradient > .striped(#ddd);
+	background-image: url(/Content/images/noisy_grid.png);
+	color: @baseTextColour;
+
+	#container {
+		max-width: 1200px;
+		margin: auto;
+		.box-shadow(0px 0px 2px 1px #888);
+		background-color: rgba(255, 255, 255, 0.8);
+
+		> header {
+			padding: 0 5%;
+			background-color: @headerColour;
+			background-image: url(/Content/images/hbg.png);
+			line-height: 5em;
+			.hbox;
+
+			> h1,
+			> #searchform {
+				.box-flex(1);
+			}
+
+			> h1 a {
+				color: rgba(250, 250, 250, 1);
+			}
+
+			> #searchform {
+				text-align: right;
+
+				input[type="text"],
+				input[type="search"] {
+					padding: 0.3em;
+					width: 50%%;
+				}
+
+				input[type="image"] {
+					height: 1.3em;
+					vertical-align: middle;
+				}
+			}
+		}
+
+		> nav {
+			border-top: 2px solid @navBorder;
+			border-bottom: 2px solid @navBorder;
+			#gradient > .vertical-three-colors(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0), 50%, rgba(255, 255, 255, 0.3));
+			background-color: green;
+			.box-shadow(0px 5px 15px 0px #bbb);
+			line-height: 2em;
+			padding: 0 5%;
+
+			.bgAnim {
+				0% { background-color: green; }
+				16% { background-color: yellow; }
+				33% { background-color: orange; }
+				50% { background-color: red; }
+				65% { background-color: violet; }
+				82% { background-color: blue; }
+				100% { background-color: green; }
+			}
+
+			@keyframes navbg { .bgAnim; }
+			@-moz-keyframes navbg { .bgAnim; }
+			@-webkit-keyframes navbg { .bgAnim; }
+			@-o-keyframes navbg { .bgAnim; }
+
+			.animation(navbg 30s infinite);
+
+			> ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+				.hbox;
+
+				> li {
+					margin-right: 3em;
+					> a {
+						color: @navTextColour;
+						font-weight: bold;
+
+						&:hover {
+							text-shadow: 2px 2px 2px #000;
+						}
+					}
+				}
+			}
+		}
+
+		> #body {
+			background-color: @bodyColour;
+
+			section {
+				background-color: @bodyColour;
+				width: 75%;
+				float: left;
+				.border-box;
+				padding: 0 5%;
+				padding-top: 1.5em;
+				padding-bottom: 3em;
+			}
+
+			> aside {
+				background-color: @asideColour;
+				width: 25%;
+				float: right;
+				.border-box;
+				padding-right: 5%;
+				padding-top: 1.5em;
+				padding-bottom: 3em;
+
+				.about {
+					font-size: 0.9em;
+				}
+			}
+		}
+
+		> footer {
+			text-align: center;
+			background-color: @footerColour;
+			padding: 1em 1em;
+			clear: both;
+			font-size: 0.9em;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+﻿@model IList<Blog.Core.Domain.BlogPost>
+
+@{
+    ViewBag.PageTitle = "Blogs for Tag: " + ViewBag.Tag;
+}
+
+@foreach (var post in Model)
+{
+    @Html.Partial("BlogPost", post)
+}

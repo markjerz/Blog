@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog", "Blog\Blog.csproj", "{C7BDAF8C-F507-454C-8784-3CF315CE795B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core", "Blog.Core\Blog.Core.csproj", "{DD5A692C-9C9D-4C11-961A-98F182014A59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7BDAF8C-F507-454C-8784-3CF315CE795B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BDAF8C-F507-454C-8784-3CF315CE795B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BDAF8C-F507-454C-8784-3CF315CE795B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BDAF8C-F507-454C-8784-3CF315CE795B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD5A692C-9C9D-4C11-961A-98F182014A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD5A692C-9C9D-4C11-961A-98F182014A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD5A692C-9C9D-4C11-961A-98F182014A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD5A692C-9C9D-4C11-961A-98F182014A59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

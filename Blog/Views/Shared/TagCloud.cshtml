@@ -1,0 +1,16 @@
+﻿@model IList<Blog.Models.TagCloudItem>
+
+@{
+    var max = Model.Count > 0 ? Model.Max(t => t.Weight) : 0;
+}
+
+<div class="tagcloud">
+    @foreach (var tag in Model.OrderBy(t => t.Tag))
+    {
+        @Html.ActionLink(tag.Tag, "Tag", "Home", new { tag = tag.Tag }, new { @class = "weight-" + Math.Round(5.0 * tag.Weight / max) })@:&nbsp;
+    }
+    @if (Model.Count == 0)
+    {
+    <p>No tags yet!</p>
+    }
+</div>
